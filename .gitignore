@@ -1,0 +1,39 @@
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de IDE/Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.*.local
+
+# Arquivos de dependências
+node_modules/
+vendor/
+
+# Arquivos de build
+dist/
+build/
+out/
+
+# Arquivos específicos do projeto
+*.xlsx
+*.docx
+*.pdf 
