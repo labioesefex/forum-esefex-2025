@@ -310,4 +310,23 @@ function isElementInViewport(el) {
         rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
         rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-} 
+}
+
+// ===== Toggle Currículo Palestrantes =====
+document.addEventListener('DOMContentLoaded', () => {
+    const palestrantes = document.querySelectorAll('.palestrante');
+
+    palestrantes.forEach(palestrante => {
+        const infoElement = palestrante.querySelector('.palestrante-info');
+        const curriculoElement = palestrante.querySelector('.palestrante-curriculo');
+
+        if (infoElement && curriculoElement) {
+            infoElement.addEventListener('click', () => {
+                // Alterna a classe 'visible' no currículo
+                curriculoElement.classList.toggle('visible');
+                // Adiciona/remove uma classe no info para feedback visual (opcional)
+                infoElement.classList.toggle('active');
+            });
+        }
+    });
+}); 

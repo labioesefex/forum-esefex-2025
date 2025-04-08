@@ -640,133 +640,97 @@ footer {
 }
 
 .palestrante {
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s ease;
-    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .palestrante:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .palestrante-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 2rem;
+    cursor: pointer; /* Indica que é clicável */
 }
 
-.palestrante-foto {
-    width: 300px;
-    height: 300px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-    border: 3px solid var(--accent-color);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    position: relative;
-    background-color: #f8f9fa;
-}
-
+.palestrante-info img,
 .palestrante-foto img {
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     object-fit: cover;
-    object-position: center top;
-    display: block;
+    margin-bottom: 15px;
+    border: 3px solid var(--primary-color);
+    transition: transform 0.3s ease;
 }
 
-/* Ajustes específicos para fotos problemáticas */
-#palestrante-orlando .palestrante-foto img,
-#palestrante-paulo .palestrante-foto img {
-    object-position: center 20%;
-}
-
-#palestrante-fernanda .palestrante-foto img {
-    object-position: center center;
-    object-fit: contain;
-}
-
-.palestrante h4 {
+.palestrante-info h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
     color: var(--primary-color);
-    margin: 0;
-    font-size: 1.3rem;
-    text-align: center;
+    font-size: 1.1em;
 }
 
-.palestrante p {
-    color: var(--text-color);
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    text-align: center;
+.palestrante-info p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
 }
 
 .palestrante-curriculo {
-    width: 100%;
-    padding: 1.5rem;
-    border-top: 1px solid var(--border-color);
-}
-
-.palestrante-curriculo p {
+    display: none; /* Esconde por padrão */
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
     text-align: left;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    font-size: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
-.palestrante-curriculo ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0;
-}
-
-.palestrante-curriculo li {
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--text-color);
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.palestrante-curriculo li:before {
-    content: "•";
-    color: var(--accent-color);
-    position: absolute;
-    left: 0;
-    font-weight: bold;
+.palestrante-curriculo.visible {
+    display: block; /* Mostra quando a classe .visible é adicionada */
 }
 
 .palestrante-curriculo h5 {
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    margin: 1.5rem 0 1rem 0;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 0.5rem;
+    color: var(--secondary-color);
+    margin-top: 15px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
 }
 
-.download-curriculo {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background-color: var(--primary-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
+.palestrante-curriculo h5:first-of-type {
+    margin-top: 0;
 }
 
-.download-curriculo:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+.palestrante-curriculo p,
+.palestrante-curriculo ul {
+    font-size: 0.85em;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.palestrante-curriculo ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Animação opcional */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajuste no hover ou active para feedback visual */
+.palestrante-info.active .palestrante-foto img {
+    transform: scale(1.05);
 }
 
 .faq-container {
