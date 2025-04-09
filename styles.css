@@ -1243,52 +1243,6 @@ footer p {
     margin-top: 2rem;
 }
 
-@keyframes piscar {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-.piscar {
-    animation: piscar 1s infinite;
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.contact-section > p {
-    text-align: center;
-    margin: 1.5rem 0;
-    font-size: 1.1rem;
-    color: #1a4b84;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60px;
-}
-
-.contact-section .email-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.contact-section .email-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-p, h2, h3, h4, h5, li {
-    text-align: justify;
-}
-
-.submissao-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
 .submissao-buttons a {
     display: inline-block;
     padding: 1rem 2rem;
@@ -1317,4 +1271,4 @@ p, h2, h3, h4, h5, li {
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f8f9fa;
-} 
+}
