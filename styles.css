@@ -1553,4 +1553,27 @@ footer p {
     animation: piscar 1s infinite;
     font-weight: bold;
     color: #ff0000;
+}
+
+.contact-section > p {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+    color: #1a4b84;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+.contact-section .email-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-section .email-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
 } 
