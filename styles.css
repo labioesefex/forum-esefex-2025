@@ -388,8 +388,8 @@ p {
 }
 
 .palestrante-info h4 {
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
     text-align: center;
     color: var(--primary-color);
 }
@@ -1073,7 +1073,7 @@ p {
 
 /* Ajuste para o nome dos palestrantes (redução de 40%) */
 .palestrante-info h4 {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-bottom: 0.5rem;
     text-align: center;
     color: var(--primary-color);
