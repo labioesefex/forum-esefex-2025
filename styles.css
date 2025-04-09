@@ -1133,8 +1133,8 @@ footer {
     }
     
     .palestrante-foto {
-        width: 250px;
-        height: 250px;
+        width: 100px;
+        height: 100px;
     }
     
     .palestrante-curriculo {
@@ -1284,6 +1284,60 @@ footer {
         padding: 0.4rem 1.5rem;
         font-size: 0.9rem;
     }
+}
+
+/* Ajustes para melhor responsividade */
+@media (max-width: 768px) {
+    .palestrante-foto {
+        width: 100px;
+        height: 100px;
+    }
+
+    .palestrante-info img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .content-box {
+        padding: 1.5rem;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajuste para mensagens importantes */
+.destaque, 
+.inscricao-alerta,
+.contact-section > p {
+    text-align: center;
+    font-weight: 500;
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+    color: #1a4b84;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+/* Ajuste para fotos dos palestrantes */
+.palestrante-foto img,
+.palestrante-info img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center 15%;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Ajustes específicos para fotos problemáticas */
