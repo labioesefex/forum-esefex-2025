@@ -1,24 +1,87 @@
 // Adiciona classe active ao link da navegação atual
 document.addEventListener('DOMContentLoaded', function() {
-    // Menu mobile toggle
+    // Lazy loading de imagens
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+
+    // Menu mobile otimizado
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
     
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            this.classList.toggle('active');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
             navLinks.classList.toggle('show');
-            document.body.classList.toggle('menu-open');
+            body.classList.toggle('menu-open');
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('show');
+                body.classList.remove('menu-open');
+            }
         });
     }
 
-    // Fechar menu ao clicar em um link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navLinks.classList.remove('show');
-            document.body.classList.remove('menu-open');
+    // Smooth scroll otimizado
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+
+                // Fechar menu mobile após clicar
+                if (navLinks.classList.contains('show')) {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('show');
+                    body.classList.remove('menu-open');
+                }
+            }
         });
+    });
+
+    // Animação de fade-in otimizada
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const fadeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        fadeObserver.observe(el);
     });
 
     // Botão voltar ao topo
@@ -40,47 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
-    // Smooth scroll para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // Animação de fade-in para elementos quando entram na viewport
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Elementos para animar - NÃO definir opacidade 0 aqui
-    document.querySelectorAll('.content-box, .hero, .section').forEach(el => {
-        // Adiciona a classe fade-in imediatamente para garantir que o conteúdo seja visível
-        el.classList.add('fade-in');
-        observer.observe(el);
-    });
 
     // Destacar link atual no menu
     const sections = document.querySelectorAll('section');
@@ -121,32 +143,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Formulário de contato
+    // Formulário de contato com validação melhorada
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Aqui você pode adicionar a lógica para enviar o formulário
-            // Por exemplo, usando fetch para enviar para um backend
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
             
-            // Exemplo de validação básica
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && subject && message) {
-                // Simulação de envio
-                alert('Mensagem enviada com sucesso!');
-                contactForm.reset();
-            } else {
+            // Validação básica
+            if (!data.name || !data.email || !data.subject || !data.message) {
                 alert('Por favor, preencha todos os campos.');
+                return;
+            }
+
+            // Validação de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Por favor, insira um email válido.');
+                return;
+            }
+
+            try {
+                // Simulação de envio
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                alert('Mensagem enviada com sucesso!');
+                this.reset();
+            } catch (error) {
+                alert('Erro ao enviar mensagem. Por favor, tente novamente.');
             }
         });
     }
 
-    // Galeria de fotos
+    // Galeria de fotos otimizada
     const galeriaItems = document.querySelectorAll('.galeria-item');
     const modal = document.createElement('div');
     modal.className = 'modal';
@@ -155,33 +185,41 @@ document.addEventListener('DOMContentLoaded', function() {
     galeriaItems.forEach(item => {
         item.addEventListener('click', () => {
             const img = item.querySelector('img');
-            const descricao = item.querySelector('.galeria-overlay p').textContent;
+            const descricao = item.querySelector('.galeria-overlay p')?.textContent || '';
             
             modal.innerHTML = `
                 <div class="modal-content">
-                    <img src="${img.src}" alt="${img.alt}">
+                    <img src="${img.src}" alt="${img.alt}" loading="lazy">
                     <p>${descricao}</p>
-                    <button class="modal-close">&times;</button>
+                    <button class="modal-close" aria-label="Fechar">&times;</button>
                 </div>
             `;
             
             modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
+            body.style.overflow = 'hidden';
             
             const closeBtn = modal.querySelector('.modal-close');
-            closeBtn.addEventListener('click', () => {
-                modal.classList.remove('show');
-                document.body.style.overflow = '';
-            });
+            closeBtn.addEventListener('click', closeModal);
             
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
-                    modal.classList.remove('show');
-                    document.body.style.overflow = '';
+                    closeModal();
+                }
+            });
+
+            // Fechar com tecla ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeModal();
                 }
             });
         });
     });
+
+    function closeModal() {
+        modal.classList.remove('show');
+        body.style.overflow = '';
+    }
 
     // Funções para a programação
     const timelineItems = document.querySelectorAll('.timeline-item');
@@ -235,70 +273,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Controle dos dias da programação
+    // Programação com melhor performance
     const diaHeaders = document.querySelectorAll('.dia-header');
     
     diaHeaders.forEach(header => {
         header.addEventListener('click', function() {
-            console.log('Clicou no cabeçalho do dia');
             const diaProgramacao = this.closest('.dia-programacao');
             const content = diaProgramacao.querySelector('.dia-content');
             const icon = this.querySelector('.toggle-icon');
             
-            // Toggle da classe collapsed no header
             this.classList.toggle('collapsed');
             
-            // Toggle da classe active no content
-            content.classList.toggle('active');
-            
-            // Atualiza o ícone
-            if (this.classList.contains('collapsed')) {
-                icon.textContent = '▼';
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
             } else {
-                icon.textContent = '▲';
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
             }
-            
-            console.log('Estado do conteúdo:', content.classList.contains('active') ? 'Ativo' : 'Inativo');
         });
     });
 
-    // Expande o primeiro dia por padrão
-    const primeiroDia = document.querySelector('.dia-programacao');
-    if (primeiroDia) {
-        const header = primeiroDia.querySelector('.dia-header');
-        const content = primeiroDia.querySelector('.dia-content');
-        const icon = header.querySelector('.toggle-icon');
-        
-        header.classList.remove('collapsed');
-        content.classList.add('active');
-        icon.textContent = '▲';
-    }
+    // Seletor de período otimizado
+    const periodoBtns = document.querySelectorAll('.periodo-btn');
+    const periodos = document.querySelectorAll('.periodo');
 
-    // Controle dos botões de período
-    const manhaBtn = document.querySelector('[data-periodo="manha"]');
-    const tardeBtn = document.querySelector('[data-periodo="tarde"]');
-    const manhaContent = document.getElementById('manha');
-    const tardeContent = document.getElementById('tarde');
-
-    function switchPeriodo(periodo) {
-        if (periodo === 'manha') {
-            manhaBtn.classList.add('active');
-            tardeBtn.classList.remove('active');
-            manhaContent.style.display = 'block';
-            tardeContent.style.display = 'none';
-        } else {
-            tardeBtn.classList.add('active');
-            manhaBtn.classList.remove('active');
-            tardeContent.style.display = 'block';
-            manhaContent.style.display = 'none';
-        }
-    }
-
-    manhaBtn.addEventListener('click', () => switchPeriodo('manha'));
-    tardeBtn.addEventListener('click', () => switchPeriodo('tarde'));
-
-    // Inicializar com o período da manhã
-    switchPeriodo('manha');
+    periodoBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const periodo = btn.dataset.periodo;
+            
+            periodoBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            periodos.forEach(p => {
+                p.style.display = p.id === periodo ? 'block' : 'none';
+            });
+        });
+    });
 });
 
 // Função auxiliar para verificar se elemento está na viewport
