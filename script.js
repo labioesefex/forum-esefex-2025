@@ -282,14 +282,17 @@ document.addEventListener('DOMContentLoaded', function() {
             const content = diaProgramacao.querySelector('.dia-content');
             const icon = this.querySelector('.toggle-icon');
             
+            // Toggle da classe collapsed no header
             this.classList.toggle('collapsed');
             
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                content.style.maxHeight = content.scrollHeight + "px";
+            // Toggle da classe active no conteúdo
+            content.classList.toggle('active');
+            
+            // Ajuste do ícone
+            if (content.classList.contains('active')) {
                 icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
             }
         });
     });

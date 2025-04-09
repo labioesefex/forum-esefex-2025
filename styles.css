@@ -234,15 +234,14 @@ p {
     display: none;
     padding: 1rem;
     background-color: #fff;
-    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 .dia-content.active {
     display: block;
-    max-height: 2000px; /* Valor alto o suficiente para conter todo o conteúdo */
-    transition: max-height 0.5s ease-in;
+    max-height: none;
+    transition: all 0.5s ease-in;
 }
 
 .periodo {
