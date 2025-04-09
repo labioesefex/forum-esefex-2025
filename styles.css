@@ -1276,4 +1276,8 @@ footer p {
 .contact-section .email-link:hover {
     color: #0056b3;
     text-decoration: underline;
+}
+
+p, h2, h3, h4, h5, li {
+    text-align: justify;
 } 
