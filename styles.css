@@ -354,7 +354,7 @@ p {
 .palestrante-mini img {
     width: 50%;
     height: 50%;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 /* Ajustes responsivos para a programação */
