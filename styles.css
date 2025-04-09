@@ -339,22 +339,40 @@ p {
 
 /* Estilo para a foto do palestrante na programação */
 .palestrante-mini {
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-left: 0.5rem;
-    border: 1px solid var(--primary-color);
-    vertical-align: middle;
-    position: relative;
-    top: -2px;
+    display: inline-flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
 .palestrante-mini img {
-    width: 50%;
-    height: 50%;
-    object-fit: fill;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    border: 2px solid var(--primary-color);
+}
+
+.timeline-content .palestrante-mini {
+    display: inline-flex;
+    align-items: center;
+    margin: 0.25rem 0;
+    padding: 0.25rem 0.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+.timeline-content .palestrante-mini img {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    border: 1px solid var(--primary-color);
 }
 
 /* Ajustes responsivos para a programação */
