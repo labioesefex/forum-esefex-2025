@@ -163,6 +163,7 @@ p {
     font-weight: 500;
     margin: 1.5rem 0;
     font-size: 1.1rem;
+    color: #1a4b84;
 }
 
 .programa-dia {
@@ -584,6 +585,7 @@ footer {
 .contact-section > p {
     text-align: center;
     margin: 1rem 0;
+    color: #1a4b84;
 }
 
 .linhas-concentracao {
