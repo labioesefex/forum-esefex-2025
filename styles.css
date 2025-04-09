@@ -1280,4 +1280,41 @@ footer p {
 
 p, h2, h3, h4, h5, li {
     text-align: justify;
+}
+
+.submissao-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.submissao-buttons a {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.submissao-buttons a:hover {
+    background-color: var(--accent-color);
+}
+
+.apresentacao-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.apresentacao-item {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
 } 
