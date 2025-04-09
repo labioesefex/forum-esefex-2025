@@ -21,12 +21,11 @@
             </button>
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#apresentacao">Apresentação</a></li>
-                <li><a href="#programacao">Programação</a></li>
-                <li><a href="#inscricao">Inscrição</a></li>
-                <li><a href="#submissao">Submissão de Resumos</a></li>
+                <li><a href="#sobre">Sobre</a></li>
                 <li><a href="#palestrantes">Palestrantes</a></li>
-                <li><a href="#patrocinadores">Patrocinadores</a></li>
+                <li><a href="#programacao">Programação</a></li>
+                <li><a href="#inscricoes">Inscrições</a></li>
+                <li><a href="#local">Local do Evento</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -1098,49 +1097,48 @@
             </div>
         </section>
 
-        <section id="faq" class="section">
+        <section id="local" class="local-section">
             <div class="container">
-                <h2>Perguntas Frequentes</h2>
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <h3>Como posso me inscrever no evento?</h3>
-                        <p>As inscrições podem ser feitas através do link disponível na seção de Inscrição. O pagamento deve ser realizado via PIX ou transferência bancária.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Posso submeter mais de um trabalho?</h3>
-                        <p>Sim, cada participante pode submeter até 3 trabalhos como autor principal e participar como coautor em outros trabalhos.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Como será a apresentação dos trabalhos?</h3>
-                        <p>Os trabalhos serão apresentados em formato de comunicação oral ou pôster, conforme a modalidade escolhida na submissão.</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3>Haverá certificado de participação?</h3>
-                        <p>Sim, todos os participantes receberão certificado de participação com carga horária de 20 horas.</p>
-                    </div>
+                <h2>Local do Evento</h2>
+                <div class="local-info">
+                    <p>Escola de Educação Física do Exército</p>
+                    <p>Al. Floriano Peixoto, s/n - Urca</p>
+                    <p>Rio de Janeiro - RJ, 22291-090</p>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.666678901234!2d-43.1666667!3d-22.9333333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997e5e9c9c9c9c9c%3A0x9c9c9c9c9c9c9c9c!2sEscola%20de%20Educa%C3%A7%C3%A3o%20F%C3%ADsica%20do%20Ex%C3%A9rcito!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </section>
 
         <section id="contato" class="contact-section">
             <div class="container">
-                <h2>Local do Evento</h2>
-                <div class="contact-info">
-                    <p>Escola de Educação Física do Exército</p>
-                    <p>Al. Floriano Peixoto, s/n - Urca, Rio de Janeiro - RJ, 22291-090</p>
-                    <p>Email: <a href="mailto:labio.esefex@gmail.com" class="email-link">labio.esefex@gmail.com</a></p>
-                </div>
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.6666666666667!2d-43.166666666666664!3d-22.933333333333334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997f5e5c0c0c0c0c%3A0x0!2sEscola+de+Educa%C3%A7%C3%A3o+F%C3%ADsica+do+Ex%C3%A9rcito!5e0!3m2!1spt-BR!2sbr!4v1234567890!5m2!1spt-BR!2sbr" 
-                        width="100%" 
-                        height="450" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+                <h2>Entre em Contato</h2>
+                <p>Para mais informações, entre em contato conosco através do email <a href="mailto:labio.esefex@gmail.com" class="email-link">labio.esefex@gmail.com</a> ou preencha o formulário abaixo:</p>
+                
+                <form class="contact-form" action="mailto:labio.esefex@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="assunto">Assunto:</label>
+                        <input type="text" id="assunto" name="assunto" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Enviar Mensagem</button>
+                </form>
             </div>
         </section>
     </main>
