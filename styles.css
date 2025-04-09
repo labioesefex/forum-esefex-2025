@@ -647,17 +647,15 @@ footer {
 }
 
 .palestrante {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
 .palestrante:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .palestrante-info {
@@ -691,24 +689,29 @@ footer {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    margin: 0 auto;
     border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
     border: 3px solid var(--primary-color);
     transition: transform 0.3s ease;
-    display: block;
+}
+
+.palestrante-info img:hover {
+    transform: scale(1.1);
 }
 
 .palestrante-info h4 {
-    margin-top: 0;
-    margin-bottom: 5px;
+    text-align: center;
     color: var(--primary-color);
-    font-size: 1.1em;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
 }
 
 .palestrante-info p {
-    font-size: 0.9em;
-    color: #555;
-    margin-bottom: 15px;
+    text-align: center;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
 }
 
 .palestrante-curriculo {
@@ -994,19 +997,25 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
 }
 
 .inscricao-limite {
     font-size: 1.5rem;
     font-weight: bold;
     color: #ff0000;
-    margin-bottom: 1rem;
+    animation: piscar 1s infinite;
 }
 
 .inscricao-vagas {
     font-size: 1.2rem;
     color: #333;
-    margin-top: 0.5rem;
+}
+
+@keyframes piscar {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
 
 .cta-buttons, .inscricao-buttons {
@@ -1022,18 +1031,6 @@ footer {
 
 .cta-button-secondary:hover {
     background-color: var(--primary-color);
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    100% {
-        transform: scale(1);
-    }
 }
 
 @media (max-width: 768px) {
