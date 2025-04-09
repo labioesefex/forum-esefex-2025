@@ -1498,55 +1498,67 @@ html {
 #inscricao h2,
 #submissao h2,
 #palestrantes h2,
-#patrocinadores h2 {
+#patrocinadores h2,
+.submissao-intro h3,
+.apresentacao-trabalho h4,
+.palestrante-info h4,
+.patrocinador h4 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin: 2rem auto;
     font-size: 2.5rem;
     color: var(--primary-color);
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
 }
 
-/* Ajuste do espaçamento e tamanho da fonte para a seção de submissão */
+/* Ajuste específico para o título da submissão */
 .submissao-intro h3 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin: 2rem 0;
-    color: var(--primary-color);
+    font-size: 2rem;
+    margin: 3rem auto;
+    line-height: 1.4;
 }
 
+/* Ajuste para a seção de apresentação de trabalho */
 .apresentacao-trabalho {
-    margin: 3rem 0;
+    margin: 3rem auto;
     padding: 2rem;
     background-color: var(--light-bg);
     border-radius: 8px;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .apresentacao-trabalho h4 {
-    text-align: center;
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
 }
 
 .apresentacao-trabalho p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
-/* Ajuste do espaçamento para a seção de palestrantes */
+/* Ajuste para a seção de palestrantes */
 .palestrantes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    padding: 2rem 0;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Ajuste do espaçamento para a seção de patrocinadores */
+/* Ajuste para a seção de patrocinadores */
 .patrocinadores-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    padding: 2rem 0;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
     justify-items: center;
 }
 
@@ -1556,19 +1568,25 @@ html {
     #inscricao h2,
     #submissao h2,
     #palestrantes h2,
-    #patrocinadores h2 {
+    #patrocinadores h2,
+    .submissao-intro h3,
+    .apresentacao-trabalho h4,
+    .palestrante-info h4,
+    .patrocinador h4 {
         font-size: 2rem;
+        margin: 1.5rem auto;
     }
 
     .submissao-intro h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        margin: 2rem auto;
     }
 
     .apresentacao-trabalho h4 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     .apresentacao-trabalho p {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
