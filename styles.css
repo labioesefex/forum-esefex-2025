@@ -1333,4 +1333,16 @@ p, .content-box p, .palestrante-curriculo p, .timeline-content p,
 .patrocinador-link, .social-links,
 footer p {
     text-align: center;
+}
+
+/* Estilo para o link de email */
+.email-link {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
 } 
