@@ -388,10 +388,10 @@ p {
 }
 
 .palestrante-info h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
     text-align: center;
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
 }
 
 .palestrante-info p {
@@ -1071,6 +1071,27 @@ p {
     object-position: center 25%;
 }
 
+/* Ajuste para o nome dos palestrantes (redução de 40%) */
+.palestrante-info h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+/* Ajuste para o link de email */
+.email-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.email-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
 /* Seção de Contato */
 .contact-section {
     padding: 4rem 0;
@@ -1343,61 +1364,6 @@ footer p {
     text-align: center;
 }
 
-/* Ajuste para fotos dos palestrantes */
-.palestrante-foto img,
-.palestrante-info img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
-    border: 3px solid var(--primary-color);
-    transition: transform 0.3s ease;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Ajustes específicos para fotos problemáticas */
-#palestrante-paulo .palestrante-foto img {
-    object-position: center 40%;
-}
-
-#palestrante-orlando .palestrante-foto img {
-    object-position: center 20%;
-}
-
-#palestrante-fernanda .palestrante-foto img {
-    object-position: center;
-    object-fit: contain;
-}
-
-#palestrante-luciano .palestrante-info img {
-    object-position: center 20%;
-}
-
-#palestrante-freitas .palestrante-info img {
-    object-position: center 30%;
-}
-
-#palestrante-fabio .palestrante-info img {
-    object-position: center 25%;
-}
-
-/* Ajuste para mensagens importantes */
-.destaque, 
-.inscricao-alerta,
-.contact-section > p {
-    text-align: center;
-    font-weight: 500;
-    margin: 1.5rem 0;
-    font-size: 1.1rem;
-    color: #1a4b84;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60px;
-}
-
 /* Ajuste para o link de email */
 .email-link {
     color: #007bff;
@@ -1531,6 +1497,8 @@ html {
 .apresentacao-trabalho h4 {
     font-size: 1.8rem;
     margin-bottom: 2rem;
+    text-align: center;
+    color: var(--primary-color);
 }
 
 .apresentacao-trabalho p {
@@ -1538,6 +1506,63 @@ html {
     line-height: 1.6;
     margin-bottom: 1.5rem;
     text-align: justify;
+}
+
+.modalidades-apresentacao {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.modalidade {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.modalidade h5 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.modalidade p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.modalidade ul {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.modalidade ul li {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+/* Ajuste responsivo */
+@media (max-width: 768px) {
+    .apresentacao-trabalho h4 {
+        font-size: 1.6rem;
+    }
+
+    .apresentacao-trabalho p,
+    .modalidade p,
+    .modalidade ul {
+        font-size: 1.1rem;
+    }
+
+    .modalidade h5 {
+        font-size: 1.3rem;
+    }
 }
 
 /* Ajuste para a seção de palestrantes */
