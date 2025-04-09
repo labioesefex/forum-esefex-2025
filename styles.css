@@ -1568,4 +1568,12 @@ footer p {
 /* Removendo todos os estilos do modo escuro */
 [data-theme="dark"] {
     display: none;
+}
+
+.contact-section .container p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
 } 
