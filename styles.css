@@ -54,7 +54,7 @@ nav {
 
 .banner {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto 2rem;
     border-radius: 8px;
     overflow: hidden;
@@ -64,8 +64,8 @@ nav {
 .banner-img {
     width: 100%;
     height: auto;
-    max-height: 400px;
-    object-fit: cover;
+    max-height: none;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -359,31 +359,28 @@ p {
 }
 
 .palestrante-foto {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1rem;
-    position: relative;
+    width: 100%;
+    height: 300px;
     overflow: hidden;
-    border-radius: 50%;
-    border: 3px solid var(--primary-color);
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
 .palestrante-foto img {
-    width: 100%;
-    height: 100%;
+    width: 110%;
+    height: 110%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    margin: -5%;
 }
 
 .palestrante-info img {
-    width: 120px;
-    height: 120px;
+    width: 110%;
+    height: 110%;
     object-fit: cover;
-    border-radius: 50%;
-    margin: 0 auto 1rem;
-    display: block;
-    border: 3px solid var(--primary-color);
+    border-radius: 8px;
     transition: transform 0.3s ease;
+    margin: -5%;
 }
 
 .palestrante-info img:hover {
