@@ -7,18 +7,16 @@
 :root {
     --primary-color: #1a4b84;
     --secondary-color: #2c3e50;
-    --accent-color: #1a4b84;
+    --accent-color: #e63946;
     --text-color: #333;
     --light-bg: #f8f9fa;
     --border-color: #dee2e6;
-    --card-bg: #ffffff;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--light-bg);
 }
 
 header {
@@ -1558,23 +1556,4 @@ footer p {
     animation: piscar 1s infinite;
     font-weight: bold;
     color: #ff0000;
-}
-
-/* Removendo estilos do botão de tema */
-.theme-toggle {
-    display: none;
-}
-
-/* Removendo todos os estilos do modo escuro */
-[data-theme="dark"] {
-    display: none;
-}
-
-.contact-section .container p {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--text-color);
 } 
