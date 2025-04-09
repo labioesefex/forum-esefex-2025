@@ -667,11 +667,14 @@ footer {
 .palestrante-foto {
     width: 120px;
     height: 120px;
-    margin: 0 auto 1rem;
+    margin: 0 auto;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--primary-color);
     transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .palestrante-foto img {
@@ -688,10 +691,11 @@ footer {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    margin-bottom: 15px;
+    margin: 0 auto;
     border-radius: 50%;
     border: 3px solid var(--primary-color);
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .palestrante-info h4 {
