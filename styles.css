@@ -386,6 +386,10 @@ p {
     transition: transform 0.3s ease;
 }
 
+.palestrante-info img:hover {
+    transform: scale(1.05);
+}
+
 .palestrante-info h4 {
     text-align: center;
     color: var(--primary-color);
@@ -1037,6 +1041,18 @@ p {
 #palestrante-fernanda .palestrante-foto img {
     object-position: center;
     object-fit: contain;
+}
+
+#palestrante-luciano .palestrante-info img {
+    object-position: center 20%;
+}
+
+#palestrante-freitas .palestrante-info img {
+    object-position: center 30%;
+}
+
+#palestrante-fabio .palestrante-info img {
+    object-position: center 25%;
 }
 
 /* Seção de Contato */
