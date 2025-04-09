@@ -11,12 +11,25 @@
     --text-color: #333;
     --light-bg: #f8f9fa;
     --border-color: #dee2e6;
+    --card-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    --primary-color: #4a90e2;
+    --secondary-color: #34495e;
+    --accent-color: #ff4757;
+    --text-color: #f8f9fa;
+    --light-bg: #1a1a1a;
+    --border-color: #404040;
+    --card-bg: #2d2d2d;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
+    background-color: var(--light-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header {
@@ -1556,4 +1569,169 @@ footer p {
     animation: piscar 1s infinite;
     font-weight: bold;
     color: #ff0000;
+}
+
+/* Botão de alternância do tema */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background-color: var(--accent-color);
+}
+
+/* Ajustes para modo escuro */
+[data-theme="dark"] .content-box {
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+[data-theme="dark"] .palestrante {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .palestrante-curriculo {
+    background-color: var(--light-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .timeline-item {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .timeline-item.destaque {
+    background-color: var(--light-bg);
+}
+
+[data-theme="dark"] .timeline-item.palestra {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+[data-theme="dark"] .timeline-item.mesa-redonda {
+    background-color: rgba(255, 152, 0, 0.1);
+}
+
+[data-theme="dark"] .timeline-item.intervalo {
+    background-color: var(--light-bg);
+}
+
+[data-theme="dark"] .contact-form {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus {
+    border-color: var(--primary-color);
+}
+
+[data-theme="dark"] .faq-item {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .modalidade {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .tipo-inscricao {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .datas-importantes {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .linha {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .patrocinador {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .modal-close {
+    background-color: var(--primary-color);
+}
+
+[data-theme="dark"] .modal-close:hover {
+    background-color: var(--accent-color);
+}
+
+[data-theme="dark"] .inscricao-alerta {
+    background-color: var(--card-bg);
+}
+
+[data-theme="dark"] .inscricao-limite {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] .inscricao-vagas {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .email-link {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .email-link:hover {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] .contact-section {
+    background-color: var(--light-bg);
+}
+
+[data-theme="dark"] .contact-info p {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .local-section {
+    background-color: var(--light-bg);
+}
+
+[data-theme="dark"] .local-info p {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .periodo-btn {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .periodo-btn:hover,
+[data-theme="dark"] .periodo-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+[data-theme="dark"] .piscar {
+    color: var(--accent-color);
 } 
