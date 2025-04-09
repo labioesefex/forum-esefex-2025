@@ -666,11 +666,11 @@ footer {
 
 .palestrante-info img,
 .palestrante-foto img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-bottom: 15px;
+    object-position: center 15%;
+    border-radius: 50%;
     border: 3px solid var(--primary-color);
     transition: transform 0.3s ease;
 }
