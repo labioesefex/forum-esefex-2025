@@ -343,4 +343,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+});
+
+// Função para alternar a visibilidade dos currículos dos palestrantes
+function toggleCurriculo(palestranteId) {
+    const curriculo = document.querySelector(`#${palestranteId} .palestrante-curriculo`);
+    if (curriculo) {
+        curriculo.classList.toggle('visible');
+    }
+}
+
+// Adicionar eventos de clique para os toggles dos currículos
+const palestrantesInfo = document.querySelectorAll('.palestrante-info h4');
+palestrantesInfo.forEach(palestrante => {
+    palestrante.addEventListener('click', () => {
+        const palestranteId = palestrante.parentElement.parentElement.id;
+        toggleCurriculo(palestranteId);
+    });
 }); 
