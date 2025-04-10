@@ -1615,7 +1615,14 @@ html {
     }
 }
 
-/* Estilos para o botão de download da programação */
+/* Centralizar e estilizar o botão de download da programação */
+.download-programacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
 .download-button {
     display: inline-block;
     padding: 10px 20px;
