@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="XII Fórum Científico da EsEFEx - Ciência e Tecnologia no Esporte e no Treinamento Militar">
+    <meta name="description" content="XII Fórum Científico da EsEFEx - Evento sobre Ciência e Tecnologia no Esporte e Treinamento Militar">
     <meta name="keywords" content="fórum científico, esefex, educação física, esporte, treinamento militar">
     <meta name="author" content="EsEFEx">
     <meta name="theme-color" content="#1a4b84">
@@ -11,6 +11,61 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="./images/logo/logo-esefex.png">
+    <meta property="og:title" content="XII Fórum Científico - ESEFEX">
+    <meta property="og:description" content="XII Fórum Científico da EsEFEx - Evento sobre Ciência e Tecnologia no Esporte e Treinamento Militar">
+    <meta property="og:image" content="...">
+    <style>
+        /* Sistema de Design Tokens */
+        :root {
+            /* Cores */
+            --color-primary: #1a4b84;
+            --color-secondary: #2c3e50;
+            --color-accent: #e63946;
+            
+            /* Tipografia */
+            --font-family-base: 'Segoe UI', system-ui, sans-serif;
+            --font-size-base: 1rem;
+            
+            /* Espaçamento */
+            --spacing-unit: 1rem;
+            --container-padding: clamp(1rem, 5vw, 3rem);
+            
+            /* Breakpoints */
+            --breakpoint-sm: 576px;
+            --breakpoint-md: 768px;
+            --breakpoint-lg: 992px;
+        }
+
+        /* Adicionar critical CSS */
+        :root {
+            --transition-speed: 0.3s;
+            --header-height: 80px;
+            --color-text: #333;
+            --color-background: #fff;
+            --color-focus: #2c3e50;
+            --container-width: min(90%, 1200px);
+        }
+
+        /* Melhorar performance de animações */
+        .palestrante-foto {
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        /* Melhorar foco visual */
+        :focus {
+            outline: 3px solid var(--color-focus);
+            outline-offset: 2px;
+        }
+
+        /* Melhorar breakpoints */
+        @media (max-width: 768px) {
+            .palestrantes-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-unit);
+            }
+        }
+    </style>
 </head>
 <body>
     <header role="banner">
@@ -19,11 +74,11 @@
                 <img src="./images/logo/logo-esefex.png" alt="Logo EsEFEx" class="logo-img" width="60" height="60">
                 <span>XII Fórum Científico</span>
             </div>
-            <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
-                <span class="sr-only">Menu</span>
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="menu-toggle" 
+                    aria-expanded="false" 
+                    aria-controls="nav-links"
+                    aria-label="Menu principal">
+                <span class="sr-only">Abrir menu</span>
             </button>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#inicio" aria-current="page">Início</a></li>
