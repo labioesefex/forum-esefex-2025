@@ -360,4 +360,125 @@ palestrantesInfo.forEach(palestrante => {
         const palestranteId = palestrante.parentElement.parentElement.id;
         toggleCurriculo(palestranteId);
     });
+});
+
+// Melhorias de performance e funcionalidades
+document.addEventListener('DOMContentLoaded', () => {
+    // Lazy loading otimizado
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+
+    // Componente Web para Palestrantes
+    class PalestranteCard extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
+        }
+        
+        connectedCallback() {
+            this.render();
+            this.addEventListeners();
+        }
+        
+        render() {
+            const template = `
+                <style>
+                    :host {
+                        display: block;
+                        margin: 1rem;
+                    }
+                    .card {
+                        border-radius: 8px;
+                        overflow: hidden;
+                        transition: transform 0.3s ease;
+                    }
+                    .card:hover {
+                        transform: translateY(-5px);
+                    }
+                </style>
+                <div class="card">
+                    <slot></slot>
+                </div>
+            `;
+            
+            this.shadowRoot.innerHTML = template;
+        }
+        
+        addEventListeners() {
+            this.addEventListener('click', () => {
+                this.toggleCurriculo();
+            });
+        }
+        
+        toggleCurriculo() {
+            const curriculo = this.querySelector('.palestrante-curriculo');
+            if (curriculo) {
+                curriculo.classList.toggle('visible');
+            }
+        }
+    }
+
+    customElements.define('palestrante-card', PalestranteCard);
+
+    // Debounce para otimização de scroll
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Scroll suave otimizado
+    const smoothScroll = debounce((target) => {
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }, 100);
+
+    // Validação de formulário melhorada
+    const form = document.querySelector('.contact-form');
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Sanitização de inputs
+            const sanitizeInput = (input) => {
+                return input.replace(/[<>]/g, '');
+            };
+            
+            const formData = new FormData(form);
+            const sanitizedData = {};
+            
+            for (let [key, value] of formData.entries()) {
+                sanitizedData[key] = sanitizeInput(value);
+            }
+            
+            try {
+                // Simulação de envio
+                await new Promise(r => setTimeout(r, 1000));
+                alert('Mensagem enviada com sucesso!');
+                form.reset();
+            } catch (error) {
+                console.error('Erro ao enviar:', error);
+                alert('Erro ao enviar mensagem. Tente novamente.');
+            }
+        });
+    }
 }); 
