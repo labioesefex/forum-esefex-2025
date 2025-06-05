@@ -758,6 +758,8 @@ p {
     height: auto;
     max-height: 140px;
     object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Destaque para a logo da Kovalent (50% maior) */
@@ -1751,6 +1753,8 @@ html {
     height: auto;
     max-height: 140px;
     object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Destaque para a logo da Kovalent (50% maior) */
